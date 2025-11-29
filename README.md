@@ -16,7 +16,7 @@ L'objectif est de résoudre [problème résolu : ex. la difficulté de trouver d
 
 ### ✨ Fonctionnalités principales
 
-* 🔍 **Recherche avancée :** Filtrage par marque, taille, couleur et modèle.
+* 🔍 **Recherche avancée :** Filtrage par sexe, taille et couleur.
 * 🛍️ **Catalogue dynamique :** Mise à jour en temps réel des stocks et collections.
 * 👤 **Espace utilisateur :** Gestion de profil, favoris et historique.
 * 📱 **Responsive Design :** Compatible mobile, tablette et desktop.
