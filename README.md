@@ -72,8 +72,9 @@ Distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations.
 
 ## 📞 Contact
 
-**Voute-Nox** - [[Lien vers votre profil GitHub ou Email](https://github.com/Voute-Nox)], 
-**leabonaco** - [[Lien vers votre profil GitHub ou Email]((https://github.com/leabonaco))], 
+**Loris Béguin** - [[Lien vers votre profil GitHub ou Email](https://github.com/Voute-Nox)], 
+**Léa Bonacorsi** - [[Lien vers votre profil GitHub ou Email](https://github.com/leabonaco)], 
+**Dyhia Mokri** - [[Lien vers votre profil GitHub ou Email](https://github.com/Dyhia04)],
 
 
 Lien du projet : [https://github.com/Voute-Nox/Shoeser](https://github.com/Voute-Nox/Shoeser)
