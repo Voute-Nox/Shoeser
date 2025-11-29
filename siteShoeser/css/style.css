@@ -1,0 +1,788 @@
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+	font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+body{
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+header{
+	width: 100%;
+    text-align: center; 
+	background-color: white;
+}
+
+nav,ul{
+	margin: 0;
+    padding: 0;
+    vertical-align: top;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+	margin: 20px auto;
+}
+
+
+hr{
+	background-color: white;
+	padding: 2px;
+}
+
+.aa{
+	text-decoration: none;
+	list-style: none;
+	color: black;
+}
+
+.barre3{
+	border: none;
+	height: 2px;
+	background-color: darkorange;
+	margin: 2rem 0;
+	border-radius: 2px;
+}
+
+.fleche{
+	bottom: 0;
+    right: 0;
+	margin-bottom:10px;
+	margin-right:4px;
+	position: fixed;
+	padding: 10px;
+	background-color: rgb(206,215,216,0.4);
+	border-radius: 90px;
+}
+
+.logo-style{
+	margin-left:100px;
+	margin-right:100px;
+	transition: transform 0.3s ease;
+}
+
+figure{
+	text-align: center;
+}
+
+header table{
+	margin-left: 20px;
+}
+
+main{
+	flex: 1;
+	margin: auto;
+    text-align: center;
+	width: 80%;
+}
+
+main table{
+	width: 100%;
+	border: 2px solid black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+footer table{
+	margin: auto;
+}
+footer span{
+	color: black;
+	margin: 15px;
+}
+
+footer{
+    margin-top: auto;
+    color: white;
+	bottom: 0;
+	margin: 0 auto;
+	padding: 30px;
+	background-color: palegoldenrod;
+	width: 100%;
+	box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+.style-footer{
+	padding: 20px;
+	border-right: 1px solid white;
+}
+
+footer span a{
+	color: black;
+	gap: 30px;
+}
+
+main section table td{
+	border: 1px solid black;
+}
+
+main section{
+	background-color: lightgoldenrodyellow;
+	max-width: 1200px;
+	margin: 30px;
+	padding: 30px;
+	border-radius: 20px;
+	width: 40%;
+	display: inline-block;
+}
+
+
+
+/*les titre*/
+h1{font-size: 44px; font-weight: bold;margin-top: 200px;color: White;text-align: center;-webkit-text-stroke: 1px black;}
+h2{font-size: 30px; font-weight: bold;}
+h3{font-size: 24px; font-weight: bold;}
+h4{font-size: 20px;font-weight: bold;}
+
+
+.case-tab{
+	background-color: white;
+}
+.case-tab2{
+	background-color: white;
+	color: black;
+}
+
+
+
+sup,strong,em{
+	color:black;
+}
+
+article{
+	color: black;
+	text-align: left;
+}
+span{
+	color: black;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.span_geo {
+    display: block;
+}
+
+p,figcaption{
+	color: black;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+main ul{
+	color: black;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.style-listeHexa{
+	display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+main li{
+	color: black;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.menuHaut{
+	position: fixed;
+	width: 100%;
+	background-color: lightgoldenrodyellow;
+	box-shadow: 0px 0 18px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+}
+
+.menu .right {
+  margin-left: auto;
+}
+.right{
+	transition: transform 0.3s ease;
+}
+.right :hover{
+	color:orange;       /* vert un peu plus foncé */
+  transform: scale(0.95);    /* léger agrandissement */
+}
+.menu li{
+	margin-right: 12px;
+	display: inline-flex;
+    align-items: center;
+	position: relative;
+}
+.menu li::after{
+	content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Commence avec une largeur de 0 */
+  height: 3px;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+.menu > li:hover::after {
+  width: 100%; /* S'étend à 100% au survol */
+}
+
+.aSimple{
+	text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.aSpe{
+	display: inline-flex;
+    align-items: center;
+	text-decoration: none;
+	font-weight: 500;
+	color: white;
+    padding: 12px;
+    font-size: 18px;
+    background-color: black;
+    border-radius: 20px;
+}
+
+.menu >ul >li:hover >a{
+	transform: scale(0.9);
+	color: #f47a60;
+}
+.menu >ul >li:hover >.sous-menu{
+	display:block;
+}
+.logo-style:hover{
+	transform: scale(0.95);
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.styled-table thead {
+  background-color: black;
+  color: white;
+}
+
+.styled-table thead th,
+.styled-table tbody td {
+  padding: 6px;       /* plus petit */
+  font-size: 14px;    /* réduit */
+}
+
+/* Arrondi du haut */
+.styled-table thead tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+.styled-table thead tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+/* Alternance couleur */
+.styled-table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+.styled-table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 18px;
+}
+
+form select {
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 18px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form select:focus {
+  border-color: black;
+  box-shadow: 0 0 4px lightgoldenrodyellow;
+  outline: none;
+}
+
+button{
+	margin: 2.5px;
+    font-size: 16px;
+	cursor:pointer;
+}
+
+form input{
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: lightgoldenrodyellow;
+    color: black;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+  border-color: black;
+  outline: none;
+}
+
+form select:focus {
+  border-color: black;
+  outline: none;
+}
+
+
+.button-pro {
+    background: black;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+	cursor:pointer;
+}
+
+.button-pro:hover {
+  transform: translateY(-2px);
+}
+
+.button-pro:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgb(76,175,80,0.2);
+}
+
+.button-pro:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cookie-form {
+	flex-direction: row;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 30, 30, 0.95);
+    display: flex;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    animation: slideUp 0.5s ease;
+}
+
+.cookie-form p {
+    margin: 0 0 15px 0;
+    font-size: 15px;
+    line-height: 1.4;
+	color: white;
+}
+
+.cookie-form button {
+    background: lightgoldenrodyellow;
+    border: none;
+    color: black;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+	margin: 0 6px;
+}
+
+.cookie-form button:hover {
+    background: lightgoldenrodyellow;
+    transform: scale(1.05);
+}
+
+.cookie-form button[value="refuse"] {
+    background: lightgoldenrodyellow;
+}
+
+.cookie-form button[value="refuse"]:hover {
+    background: lightgoldenrodyellow;
+}
+
+@keyframes slideUp {
+    from { transform: translate(-50%, 100%); opacity: 0; }
+    to   { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.Rec-form {
+	margin: initial;
+	flex-direction: row;
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+.Rec-form input{
+	padding: 12px 16px;
+}
+
+.Rec-form p {
+    font-size: 15px;
+    line-height: 1.4;
+	color: white;
+}
+
+.Rec-form button {
+    background: white;
+	border: none;
+}
+
+
+.Connex-form {
+    border-radius: 15px;
+    font-family: 'Arial', sans-serif;
+    gap: 15px; /* espace entre les éléments */
+}
+
+.Connex-form input {
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Connex-form input:focus {
+    border-color: black;
+}
+
+.Connex-form button {
+    background: black;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.Connex-form button:hover {
+    background: black;
+    transform: scale(1.05);
+}
+
+.accordion{
+	margin-left: auto;
+	display: flex;
+	background: black;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.accordion:hover {
+    background: black;
+    transform: scale(1.05);
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.color-submenu{
+	display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 999;
+    box-sizing: border-box; /* inclut le padding dans la largeur */
+    min-width: 160px;       /* largeur minimale */
+    max-width: 260px;       /* largeur max avant coupe */
+    white-space: normal; 
+}
+
+.color-submenu li {
+    display: block;          /* garder le sous-menu vertical */
+    position: relative;      /* nécessaire pour ::after */
+    padding: 6px 8px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.color-submenu li::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;             /* juste sous le texte */
+    left: 0;                 /* commence à gauche */
+    width: 0;                 /* invisible au départ */
+    height: 3px;
+    border-radius: 2px;
+    transition: width 0.3s ease; /* transition simple */
+	background-color: transparent;
+}
+#red:hover::after { background-color: red; }
+#white:hover::after { background-color: white; }
+#grey:hover::after { background-color: grey; }
+#black:hover::after { background-color: black; }
+#brown:hover::after { background-color: brown; }
+#beige:hover::after { background-color: beige; }
+#orange:hover::after { background-color: orange; }
+
+.color-submenu li:hover::after {
+    width: 100%;             /* s’étend sur toute la largeur du li */
+}
+
+
+.color-menu{
+	cursor:pointer;
+	position: relative;
+}
+
+.color-menu:hover .color-submenu{
+	display: block;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 1200px) {
+    main {
+        width: 90%;
+    }
+    main section {
+        width: 60%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    main section {
+        width: 80%;
+        display: block;
+        margin: 15px auto;
+    }
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .logo-style {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    main {
+        width: 95%;
+    }
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+    h4 { font-size: 18px; }
+    
+    .color-submenu {
+        min-width: 120px;
+        max-width: 180px;
+    }
+    
+    .menu li {
+        margin-right: 8px;
+    }
+
+    .login-box, form {
+        width: 90%;
+        padding: 20px;
+    }
+
+    main section {
+        width: 95%;
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    .styled-table thead th,
+    .styled-table tbody td {
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .Rec-form, .Connex-form, .cookie-form {
+        flex-direction: column;
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+        padding: 15px;
+    }
+
+    .slideshow-container {
+        max-width: 100%;
+    }
+
+    .prev, .next {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* Empêcher le scroll horizontal */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Footer full width */
+footer {
+    width: 100%;
+    box-sizing: border-box; /* inclut padding dans la largeur */
+}
+
+/* Ajuster les sections pour ne pas dépasser */
+main section {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Menu fixe, éviter débordement */
+.menuHaut {
+    width: 100%;
+    left: 0;
+    box-sizing: border-box;
+}
+
+/* Slideshow */
+.slideshow-container {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Login / Forms / Popup */
+.login-box, form, .Connex-form, .Rec-form, .cookie-form {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Sections margin auto pour centrer correctement */
+main {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sous-menu */
+.color-submenu {
+    left: 0;
+    max-width: 100%;
+}
