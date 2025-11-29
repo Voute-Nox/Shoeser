@@ -28,10 +28,9 @@ L'objectif est de résoudre [problème résolu : ex. la difficulté de trouver d
 
 Ce projet a été conçu avec les technologies suivantes :
 
-* **Frontend :** [Ex: React / Vue.js / HTML5 & CSS3]
-* **Backend :** [Ex: Node.js / Python Django / PHP]
-* **Base de données :** [Ex: MongoDB / MySQL / Firebase]
-* **Outils :** Git, [Ex: Docker, Webpack]
+* **Frontend :** [Ex: Javascript / HTML5 & CSS3]
+* **Backend :** [Ex: Js / Python / PHP]
+* **Base de données :** [Ex: Postgresql]
 
 ---
 
@@ -41,7 +40,6 @@ Pour lancer le projet localement sur votre machine, suivez ces étapes :
 
 ### Prérequis
 Assurez-vous d'avoir installé :
-* [Outil 1 : ex. Node.js]
 * [Outil 2 : ex. Git]
 
 ### Étapes
@@ -50,28 +48,6 @@ Assurez-vous d'avoir installé :
     ```bash
     git clone [https://github.com/Voute-Nox/Shoeser.git](https://github.com/Voute-Nox/Shoeser.git)
     cd Shoeser
-    ```
-
-2.  **Installer les dépendances**
-    ```bash
-    # Exemple pour un projet JS
-    npm install
-    # OU pour un projet Python
-    pip install -r requirements.txt
-    ```
-
-3.  **Configurer l'environnement**
-    Créez un fichier `.env` à la racine (si nécessaire) et ajoutez vos clés API :
-    ```env
-    API_KEY=votre_cle_ici
-    DB_HOST=localhost
-    ```
-
-4.  **Lancer l'application**
-    ```bash
-    npm start
-    # OU
-    python main.py
     ```
 
 ---
