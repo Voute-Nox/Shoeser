@@ -27,6 +27,13 @@ public class ServeurSocket {
         this.portEcoute = portEcoute;
     }
 
+/**
+     * Méthode main qui lance le serveur.
+     * args[0] peut contenir le port d'écoute. Si aucun argument n'est fourni,
+     * le port par défaut 50000 est utilisé.
+     *
+     * @param args arguments de la ligne de commande
+     */
     public static void main(String[] args) {
         System.out.println("--- SERVEUR SHOESER (MODE MONO-CLIENT) ---");
 
@@ -42,6 +49,11 @@ public class ServeurSocket {
         new ServeurSocket(port).lancerServeur();
     }
 
+/**
+     * Lance le serveur :
+     * - connexion à la base de données
+     * - mise en écoute sur le port TCP
+     */
     private void lancerServeur() {
         try {
             connecterBD();
@@ -52,13 +64,19 @@ public class ServeurSocket {
         }
     }
 
+ /**
+     * Établit la connexion JDBC à la base PostgreSQL.
+     * Les paramètres doivent être adaptés à la configuration locale.
+     *
+     * @throws SQLException si la connexion échoue
+     */
     private void connecterBD() throws SQLException {
         String url = "jdbc:postgresql://postgresql-shoeser.alwaysdata.net:5432/shoeser_base"; 
         String utilisateur = "shoeser";                         
         String motDePasse = "mycy234";                           
 
         connexionBD = DriverManager.getConnection(url, utilisateur, motDePasse);
-        System.out.println(" Connexion BD établie");
+        System.out.println("Connexion BD établie");
     }
 
     /**
@@ -67,7 +85,7 @@ public class ServeurSocket {
      */
     private void demarrerEcoute() {
         try (ServerSocket socketServeur = new ServerSocket(portEcoute)) {
-            System.out.println("🎧 Serveur en écoute sur le port " + portEcoute);
+            System.out.println("Serveur en écoute sur le port " + portEcoute);
 
             while (true) {
                 Socket socketEntrant = socketServeur.accept();
@@ -84,10 +102,8 @@ public class ServeurSocket {
                     socketEntrant.close();
                     
                 } else {
-                    // CAS B : SERVEUR LIBRE
                     System.out.println(" Nouveau client accepté : " + socketEntrant.getInetAddress());
                     
-                    // On verrouille la place
                     estOccupe.set(true);
 
                     new Thread(() -> {
@@ -95,7 +111,7 @@ public class ServeurSocket {
                             gererClient(socketEntrant);
                         } finally {
                             estOccupe.set(false);
-                            System.out.println("✅ Client parti, serveur LIBRE pour le suivant.");
+                            System.out.println("Client parti, serveur LIBRE pour le suivant.");
                         }
                     }).start();
                 }
@@ -108,7 +124,10 @@ public class ServeurSocket {
     }
 
     /**
-     * Gère le dialogue avec un client (Exécuté dans un Thread à part).
+     * Gère le dialogue avec un client.
+     * Les commandes reconnues sont : DEBUT, SCAN, SAISIE, MAJ_STOCK et FIN.
+     *
+     * @param socketClient socket du client connecté
      */
     private void gererClient(Socket socketClient) {
         
@@ -172,14 +191,29 @@ public class ServeurSocket {
         }
     }
 
+ /**
+     * Envoie une ligne de texte au client, suivie d'un retour à la ligne.
+     *
+     * @param sortie  flux de sortie vers le client
+     * @param message message à envoyer
+     * @throws IOException si une erreur d'écriture survient
+     */
     private void envoyerLigne(BufferedWriter sortie, String message) throws IOException {
         sortie.write(message);
         sortie.newLine();
         sortie.flush();
     }
 
-    // --- VOS MÉTHODES MÉTIERS (INCHANGÉES) ---
-
+ /**
+     * Traite la commande d'ouverture de session.
+     * Exemple de message attendu : "DEBUT;1"
+     * (ici 1 est l'identifiant du magasin).
+     *
+     * @param donnees éléments de la ligne reçue (séparés par ';')
+     * @param sortie  flux de sortie vers le client
+     * @return l'id du magasin si le message est correct, null sinon
+     * @throws IOException si une erreur d'écriture survient
+     */
     private Integer traiterDebut(String[] donnees, BufferedWriter sortie) throws IOException {
         if (donnees.length != 2) {
             envoyerLigne(sortie, "ERR;FORMAT_DEBUT");
@@ -195,6 +229,16 @@ public class ServeurSocket {
         }
     }
 
+    /**
+     * Traite un scan de code-barres.
+     * Exemple de message attendu : "SCAN;1234567890123"
+     * (ici 1234567890123 est le code-barres lu par le scanner).
+     *
+     * @param donnees   éléments de la ligne reçue
+     * @param idMagasin identifiant du magasin (doit avoir été défini par DEBUT)
+     * @param sortie    flux de sortie vers le client
+     * @throws IOException si une erreur d'écriture survient
+     */
     private void traiterScan(String[] donnees, Integer idMagasin, BufferedWriter sortie) throws IOException {
         if (idMagasin == null) {
             envoyerLigne(sortie, "ERR;PAS_DE_DEBUT");
@@ -243,6 +287,17 @@ public class ServeurSocket {
             envoyerLigne(sortie, "ERR;SERVEUR");
         }
     }
+
+/**
+     * Traite la saisie manuelle d'une chaussure.
+     * Exemple de message attendu : "SAISIE;42"
+     * (ici 42 est l'identifiant de la chaussure saisi par l'utilisateur).
+     *
+     * @param donnees   éléments de la ligne reçue
+     * @param idMagasin identifiant du magasin
+     * @param sortie    flux de sortie vers le client
+     * @throws IOException si une erreur d'écriture survient
+     */
 
     private void traiterSaisie(String[] donnees, Integer idMagasin, BufferedWriter sortie) throws IOException {
         if (idMagasin == null) {
@@ -293,6 +348,16 @@ public class ServeurSocket {
         }
     }
 
+ /**
+     * Traite la mise à jour du stock par un manager.
+     * Exemple de message attendu : "MAJ_STOCK;42;10"
+     * (ici 42 est l'identifiant de la chaussure et 10 la nouvelle quantité en stock).
+     *
+     * @param donnees   éléments de la ligne reçue
+     * @param idMagasin identifiant du magasin
+     * @param sortie    flux de sortie vers le client
+     * @throws IOException si une erreur d'écriture survient
+     */
     private void traiterMajStock(String[] donnees, Integer idMagasin, BufferedWriter sortie) throws IOException {
         if (idMagasin == null) {
             envoyerLigne(sortie, "ERR;PAS_DE_DEBUT");
@@ -322,7 +387,6 @@ public class ServeurSocket {
         }
 
         try {
-            // Vérification de l'existence
             String checkSQL = "SELECT 1 FROM LigneStock WHERE id_chaussure = ? AND id_magasin = ? AND taille = ?";
             boolean existe = false;
             try(PreparedStatement pst = connexionBD.prepareStatement(checkSQL)) {
@@ -339,7 +403,6 @@ public class ServeurSocket {
                 return;
             }
 
-            // Mise à jour
             String updateSQL = "UPDATE LigneStock SET quantite = ? " +
                                "WHERE id_chaussure = ? AND id_magasin = ? AND taille = ?";
             try (PreparedStatement pst = connexionBD.prepareStatement(updateSQL)) {

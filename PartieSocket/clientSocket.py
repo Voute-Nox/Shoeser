@@ -32,7 +32,7 @@ def afficher_aide():
     print("-" * 50)
     print("COMMANDES DISPONIBLES :")
     print("1. DEBUT;idMagasin")
-    print("2. SCAN;codeBarre")
+    print("2. SCAN;codeBarre;taille")
     print("3. SAISIE;idChaussure;taille")
     print("4. MAJ_STOCK;idChaussure;quantite;taille")
     print("5. FIN")
