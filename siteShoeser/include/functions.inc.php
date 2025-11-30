@@ -638,6 +638,18 @@
 		</script>';
 	}
 	
+	function getNom($pseudo){
+		global $pdo;
+
+		$stmt = $pdo->prepare("SELECT nom FROM utilisateur WHERE pseudo = :p");
+		$stmt->execute(['p' => $pseudo]);
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		if ($row) {
+			echo $row['nom'];
+		}
+	}
+	
 	function getPrenom($pseudo){
 		global $pdo;
 
