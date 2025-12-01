@@ -117,6 +117,9 @@ shoeser/
 │   ├── index.php                 # Login
 │   ├── stock.php                 # Dashboard Gérant
 │   └── ... (autres fichiers PHP)
+├── SQL/
+│   └── CREATE-TABLE_SHOESER.sql
+│   └── SELECT-REQUEST_SHOESER.sql
 └── README.md
 ```
 ## 🎓 Auteurs
