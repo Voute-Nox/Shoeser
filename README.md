@@ -70,7 +70,7 @@ Actuellement configuré pour : `postgresql-shoeser.alwaysdata.net`.
 exemple pour un magasin:
 gérant: id:`c-lbeguin`, mdp:`A123456*`.
 manager: id:`c-dbeguin`, mdp:`A123456*`.
-employé: id:`c-d-mokri`, mdp:`A123456*`
+employé: id:`c-dmokri`, mdp:`A123456*`
 
 ### 3. Lancement du Serveur Stock (Java)
 Le serveur gère les connexions entrantes des terminaux.
